@@ -46,6 +46,12 @@ public class ProductController {
         return updatedProduct.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    //GetMapping to search by Name -- to be implemented
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Product> getProductByName(@PathVariable String name) {
+        Optional<Product> product = productService.findProductByName(name);
+        return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    //Delete Entry need to be implemented
 
 }

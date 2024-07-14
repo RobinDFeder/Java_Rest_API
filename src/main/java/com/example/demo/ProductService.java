@@ -27,4 +27,8 @@ public class ProductService {
     public Optional<Product> changeProductPrice(Long id, Double newPrice) {
         return productRepo.updatePrice(id, newPrice);
     }
+
+    public Optional<Product> findProductByName(String name) {
+        return productRepo.findByName(name);
+    }
 }

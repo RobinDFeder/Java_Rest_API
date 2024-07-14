@@ -21,9 +21,6 @@ public class ProductRepo {
     private final Lock lock = new ReentrantLock();
     private Long nextId = 1L;
 
-//    private ObjectMapper objectMapper = new ObjectMapper();
-//    private static final String DATABASE_FILE = "database.json";
-
     @Autowired
     public ProductRepo(FileUtil fileUtil) {
         this.fileUtil = fileUtil;
@@ -53,6 +50,18 @@ public class ProductRepo {
         lock.lock();
         try {
             return fileUtil.readProductsFromFile().stream().filter(product -> product.getId().equals(id)).findFirst();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Optional.empty();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public Optional<Product> findByName(String name){
+        lock.lock();
+        try{
+            return fileUtil.readProductsFromFile().stream().filter(product -> product.getName().equals(name)).findFirst();
         } catch (IOException e) {
             e.printStackTrace();
             return Optional.empty();
@@ -94,17 +103,5 @@ public class ProductRepo {
             lock.unlock();
         }
     }
-
-
-
-//    public Optional<Product> findProductById(Long id) {
-//        try {
-//            List<Product> products = objectMapper.readValue(new File(DATABASE_FILE), new TypeReference<List<Product>>() {});
-//            return products.stream().filter(product -> product.getId().equals(id)).findFirst();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return Optional.empty();
-//    }
 }
 
