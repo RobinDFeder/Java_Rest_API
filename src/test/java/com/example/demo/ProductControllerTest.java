@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.products.Product;
+import com.example.demo.products.ProductController;
+import com.example.demo.products.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

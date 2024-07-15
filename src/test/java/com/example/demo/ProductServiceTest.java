@@ -1,13 +1,13 @@
 package com.example.demo;
 
+import com.example.demo.products.ProductService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.example.demo.ProductService;
-import com.example.demo.Product;
+import com.example.demo.products.Product;
 import com.example.demo.products.ProductRepo;
 
 import java.util.Arrays;

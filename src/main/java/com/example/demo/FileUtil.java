@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.products.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;

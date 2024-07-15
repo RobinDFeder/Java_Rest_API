@@ -1,13 +1,9 @@
 package com.example.demo.products;
 
-import com.example.demo.Product;
 import com.example.demo.FileUtil;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
