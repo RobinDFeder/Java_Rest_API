@@ -1,11 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.products.ProductService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.MockitoAnnotations;
 
 import com.example.demo.products.Product;
 import com.example.demo.products.ProductRepo;
@@ -15,10 +15,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
     @Mock
@@ -26,6 +25,11 @@ public class ProductServiceTest {
 
     @InjectMocks
     private ProductService productService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this); // Initialize mocks for Mockito
+    }
 
     @Test
     public void testFindAllProducts_EmptyList() {
@@ -82,5 +86,4 @@ public class ProductServiceTest {
     }
 
     // Similar tests can be written for addProduct and changeProductPrice methods
-
 }
