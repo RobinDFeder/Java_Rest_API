@@ -14,9 +14,15 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final JsonFileUserDetailsService userDetailsService;
+//    private final JsonFileUserDetailsService userDetailsService;
+//
+//    public SecurityConfig(JsonFileUserDetailsService userDetailsService) {
+//        this.userDetailsService = userDetailsService;
+//    }
 
-    public SecurityConfig(JsonFileUserDetailsService userDetailsService) {
+    private final FirebaseUserService userDetailsService;
+
+    public SecurityConfig(FirebaseUserService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
